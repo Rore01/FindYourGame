@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FindYourGame.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="15">
+
+
+            <Entry x:Name="GameSearchEntry" 
+                Placeholder="Enter game name" 
+                HorizontalOptions="FillAndExpand" 
+                WidthRequest="250" 
+                HeightRequest="40" 
+                FontSize="14"/>
+
+            
+            
+            <Button Text="Search" 
+                Clicked="SearchButton_Clicked"
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                WidthRequest="200" 
+                HeightRequest="50" 
+                FontSize="16"
+                BackgroundColor="LightBlue"
+                BorderColor="DarkBlue"
+                CornerRadius="10"/>    
+                    
+
+
+
+            <Button Text="List" 
+                Clicked="OnListButtonClicked" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                WidthRequest="200" 
+                HeightRequest="50" 
+                FontSize="16"
+                BackgroundColor="LightBlue"
+                BorderColor="DarkBlue"
+                CornerRadius="10"/>
+
+
+
+
+            <!-- Results List -->
+            <StackLayout x:Name="SearchHistoryStack" 
+                         IsVisible="False"
+                         Spacing="5"
+                         WidthRequest="400"
+                         Padding="5">
+                <Label Text="Previous Searches" FontAttributes="Bold"/>
+
+                <!-- searched names -->
+                <StackLayout x:Name="PreviousSearchesStack" Spacing="5">
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Results List -->
+            <ListView x:Name="ResultsListView"
+                      ItemsSource="{Binding SearchResults}"
+                      SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
+                                <Label Text="{Binding Price}" FontSize="16" TextColor="Green"/>
+
+                                <!-- Delete Button -->
+                                <Button Text="Delete" 
+                                        BackgroundColor="Red" 
+                                        TextColor="White" 
+                                        Clicked="DeleteButton_Clicked"
+                                        HorizontalOptions="End" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
