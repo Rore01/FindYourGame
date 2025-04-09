@@ -42,17 +42,18 @@ namespace FindYourGame
 
         private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
-            // Get the button that was clicked
+            // get the button that was clicked
             var button = sender as Button;
 
+            //finf the game from its button
             var game = button?.BindingContext as Game;
 
             if (game != null)
             {
-                // Remove from the ObservableCollection
+                // remove from the ObservableCollection
                 SavedGames.Remove(game);
 
-                // Also delete from the database
+                // också delete from the database
                 await _databaseService.DeleteGameAsync(game);
             }
         }

@@ -59,23 +59,6 @@ namespace FindYourGame
             }
         }
 
-        private async void GameSearchEntry_Focused(object sender, FocusEventArgs e)
-        {
-            if (SingletonService.Instance.IsBackNavigation)
-            {
-                System.Diagnostics.Debug.WriteLine("Search bar focused and back navigation detected!");
-
-                await Task.Delay(100);
-
-                if (!string.IsNullOrEmpty(SingletonService.Instance.LastSearchText))
-                {
-                    GameSearchEntry.Text = SingletonService.Instance.LastSearchText;
-                }
-
-                SingletonService.Instance.IsBackNavigation = false;
-            }
-        }
- 
         private async void SearchButton_Clicked(object sender, EventArgs e)
         {
             var gameName = GameSearchEntry.Text;
@@ -124,10 +107,7 @@ namespace FindYourGame
 
                 SingletonService.Instance.IsBackNavigation = false;
             }
-            else
-            {
-                GameSearchEntry.Text = string.Empty;
-            }
+            
         }
 
         private async void DeleteButton_Clicked(object sender, EventArgs e)

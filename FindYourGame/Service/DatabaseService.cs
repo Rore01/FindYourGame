@@ -9,17 +9,17 @@ namespace FindYourGame.Service
     {
         private readonly SQLiteAsyncConnection _database;  // SQLite connection instance
 
-        // Constructor: Initializes SQLiteAsyncConnection with a path to the database file
+        
         public DatabaseService(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Game>().Wait();  // Ensures the 'Game' table is created if it doesn't exist
         }
 
-        // Method to save a game to the database (inserts the game into the 'Game' table)
+        // Method to save a game to the database (inesertar the game in the Game table)
         public Task<int> SaveGameAsync(Game game)
         {
-            return _database.InsertAsync(game);  // Inserts a game record asynchronously
+            return _database.InsertAsync(game);  // inserts a game number asynchronously
         }
 
         // Method to get the list of saved games from the database (retrieves all games)

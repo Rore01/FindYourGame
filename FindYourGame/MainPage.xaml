@@ -52,33 +52,10 @@
                          Padding="5">
                 <Label Text="Previous Searches" FontAttributes="Bold"/>
 
-                <!-- searched names -->
-                <StackLayout x:Name="PreviousSearchesStack" Spacing="5">
-                </StackLayout>
+                
             </StackLayout>
 
-            <!-- Results List -->
-            <ListView x:Name="ResultsListView"
-                      ItemsSource="{Binding SearchResults}"
-                      SelectionMode="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
-                                <Label Text="{Binding Price}" FontSize="16" TextColor="Green"/>
-
-                                <!-- Delete Button -->
-                                <Button Text="Delete" 
-                                        BackgroundColor="Red" 
-                                        TextColor="White" 
-                                        Clicked="DeleteButton_Clicked"
-                                        HorizontalOptions="End" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            
         </VerticalStackLayout>
     </ScrollView>
 
